@@ -185,7 +185,7 @@ function buildiso_chroot_exec_default()     #定制系统
 }
 
 #function buildiso_chroot_exec_install_docker()
-#{
+##{
 #  echo "chroot exec apt upgrade command ..."
 #  buildiso_mount_rootfs
 #
@@ -264,7 +264,7 @@ function buildiso_chroot_exec_install_autoupdate()        #安装autoupdate更�
 #  sudo cp -rf $BaseDir/packages/zabbix/zabbix.yml  $(pwd)/squashfs-root/etc/zabbix/
 #}
 
-function buildiso_chroot_exec_install_lcdproc()     #安装lcdproc
+function buildiso_chroot_exec_install_lcdproc()     #安装lcdproc  ？
 {
   echo "chroot exec install lcdproc ..."
   sudo cp -rf $BaseDir/packages/lcdproc  $(pwd)/squashfs-root/mnt/
