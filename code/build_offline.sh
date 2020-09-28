@@ -37,6 +37,8 @@ function buildiso_first_rootfs()         #解压filesystem.squashfs，解压出�
 {
   if [ ! -d "squashfs-root" ]; then
     echo '第一次使用，初始化root'
+    echo $BaseDir
+    sleep 5
     #mv ISOFilesystem/live/filesystem.squashfs .
     unsquashfs filesystem.squashfs
   fi
@@ -298,7 +300,7 @@ function buildiso_install_deb_package()     #安装OMV  #446
   buildiso_exit_chroot
 }
 
-function buildiso_install_mon_package()       #UPS报警
+function buildiso_install_mon_package()       #UPS
 {
   buildiso_mount_rootfs
   echo "copy spl-mon-serv  to squashfs-root/mon-temp..."
