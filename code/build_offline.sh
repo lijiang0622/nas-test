@@ -283,6 +283,7 @@ function buildiso_chroot_exec_install_lcdproc()     #安装lcdproc  ？?????????
   sudo chroot $(pwd)/squashfs-root /bin/bash -c "rm -rf /mnt/lcdproc"
 #  sudo chroot $(pwd)/squashfs-root /bin/bash -c "sudo easy_install3 lcdproc"
 
+
   buildiso_exit_chroot
 
 }
@@ -318,6 +319,22 @@ function buildiso_install_mon_package()       #UPS
 
   buildiso_exit_chroot
 }
+
+function buildiso_install_splglcd()
+{
+  echo"install splglcd --  yaml  luasocket  lualogging  lua-lcdproc  lusec "
+  cp -R -f $BaseDir/packages/lua-glcd $(pwd)/squashfs-root/opt
+  buildiso_mount_rootfs
+  sudo chroot $(pwd)/squashfs-root /bin/bash -c "luarocks install yaml"
+  sudo chroot $(pwd)/squashfs-root /bin/bash -c "luarocks install luasocket"
+  sudo chroot $(pwd)/squashfs-root /bin/bash -c "luarocks install lualogging"
+  sudo chroot $(pwd)/squashfs-root /bin/bash -c "luarocks install lua-lcdproc"
+  sudo chroot $(pwd)/squashfs-root /bin/bash -c "luarocks install luasec"
+  sudo chroot $(pwd)/squashfs-root /bin/bash -c ""
+  buildiso_exit_chroot
+
+}
+
 
 function buildiso_chroot_exec_upgrade()     #更新
 {
